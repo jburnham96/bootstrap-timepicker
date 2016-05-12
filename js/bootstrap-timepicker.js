@@ -555,7 +555,6 @@
         },
 
         incrementHour: function () {
-            console.log(this.hour);
             if (this.showMeridian) {
                 if (this.hour === 11) {
                     this.hour++;
