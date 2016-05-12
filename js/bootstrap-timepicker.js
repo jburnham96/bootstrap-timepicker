@@ -575,17 +575,21 @@
                 return;
             }
 
-            switch (this.format) {
-                case 'HH:mm':
-                    if (this.hour < 9) {
-                        this.hour = '0' + (parseInt(this.hour) + 1);
-                    } else {
+            if (!this.showMeridian) {
+                switch (this.format) {
+                    case 'HH:mm':
+                        if (this.hour < 9) {
+                            this.hour = '0' + (parseInt(this.hour) + 1);
+                        } else {
+                            this.hour++;
+                        }
+                        break;
+                    default:
                         this.hour++;
-                    }
-                    break;
-                default:
-                    this.hour++;
-                    break;
+                        break;
+                }
+            } else {
+                this.hour++;
             }
         },
 
