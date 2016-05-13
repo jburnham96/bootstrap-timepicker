@@ -565,13 +565,18 @@
             }
             
             if (this.hour === this.maxHours - 1) {
-                switch (this.format) {
-                    case 'HH:mm':
-                        this.hour = '00';
-                    default:
-                        this.hour = 0;
+                if (!this.showMeridian) {
+                    switch (this.format) {
+                        case 'HH:mm':
+                            this.hour = '00';
+                            break;
+                        default:
+                            this.hour = 0;
+                            break;
+                    }
+                } else {
+                    this.hour = 0;
                 }
-
                 return;
             }
 
